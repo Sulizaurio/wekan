@@ -50,7 +50,7 @@ template(name="boardHeaderBar")
                 span
                   = currentBoard.stars
 
-            a.board-header-btn(
+            b.board-header-btn(
               class="{{#if currentUser.isBoardAdmin}}js-change-visibility{{else}}is-disabled{{/if}}"
               title="{{_ currentBoard.permission}}")
               i.fa(class="{{#if currentBoard.isPublic}}fa-globe{{else}}fa-lock{{/if}}")
