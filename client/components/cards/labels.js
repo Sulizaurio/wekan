@@ -27,7 +27,7 @@ BlazeComponent.extendComponent({
   },
 }).register('formLabel');
 
-Template.createLabelPopup.helpers({
+createLabelPopup.helpers({
   // This is the default color for a new label. We search the first color that
   // is not already used in the board (although it's not a problem if two
   // labels have the same color).
@@ -39,7 +39,7 @@ Template.createLabelPopup.helpers({
   },
 });
 
-Template.cardLabelsPopup.events({
+cardLabelsPopup.events({
   'click .js-select-label'(evt) {
     const card = Cards.findOne(Session.get('currentCard'));
     const labelId = this._id;
@@ -50,7 +50,7 @@ Template.cardLabelsPopup.events({
   'click .js-add-label': Popup.open('createLabel'),
 });
 
-Template.formLabel.events({
+formLabel.events({
   'click .js-palette-color'(evt) {
     const $this = $(evt.currentTarget);
 
@@ -62,7 +62,7 @@ Template.formLabel.events({
   },
 });
 
-Template.createLabelPopup.events({
+createLabelPopup.events({
   // Create the new label
   'submit .create-label'(evt, tpl) {
     evt.preventDefault();
@@ -74,7 +74,7 @@ Template.createLabelPopup.events({
   },
 });
 
-Template.editLabelPopup.events({
+editLabelPopup.events({
   'click .js-delete-label': Popup.afterConfirm('deleteLabel', function() {
     const board = Boards.findOne(Session.get('currentBoard'));
     board.removeLabel(this._id);
@@ -90,7 +90,7 @@ Template.editLabelPopup.events({
   },
 });
 
-Template.cardLabelsPopup.helpers({
+cardLabelsPopup.helpers({
   isLabelSelected(cardId) {
     return _.contains(Cards.findOne(cardId).labelIds, this._id);
   },
