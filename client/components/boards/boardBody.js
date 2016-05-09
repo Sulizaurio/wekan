@@ -103,7 +103,7 @@ BlazeComponent.extendComponent({
   },
 }).register('board');
 
-Template.boardBody.onRendered(function() {
+boardBody.onRendered(function() {
   const self = BlazeComponent.getComponentForElement(this.firstNode);
 
   self.listsDom = this.find('.js-lists');
